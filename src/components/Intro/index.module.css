@@ -1,13 +1,30 @@
 .container{
-    background: linear-gradient(240deg, #FFFFFF 0%, var(--gray) 100.28%);
     height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
+    background: transparent;
+}
+
+.background {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    background: linear-gradient(240deg, #FFFFFF 0%, var(--gray) 100.28%);
+}
+
+.tsparticles {
+    height: 100%;
+    width: 100%;
 }
 
 .content{
-    margin-left: 15%;
+    position: relative;
+    z-index: 0;
 }
 
 .content .title {
@@ -40,4 +57,31 @@
 .icon:hover{
     transform: scale(1.15);
     fill: black;
+}
+
+@media screen and (max-width: 900px) {
+    .content .title {
+        font-size: 2rem;
+        letter-spacing: normal;
+    }
+    .content .tagline {
+        font-size: 1.25rem;
+    }
+    .icon {
+        height: 2rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .content {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .icon {
+        height: 1.75rem;
+    }
 }
