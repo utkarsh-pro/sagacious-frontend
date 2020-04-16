@@ -74,6 +74,10 @@ function NavigationButton({ name, link }: INavigationButton) {
 function Navbar() {
     const [navClasses, setNavClasses] = useState([Classes.nav])
 
+    // Mobile states
+    const [mobileNavClasses, setMobileNavClasses] = useState([Classes.mobile])
+    const [mobileNavState, setMobileNavState] = useState(false)
+
     // Adding a scroll listener on the window
     useEffect(() => {
         window.onscroll = () => {
@@ -83,11 +87,21 @@ function Navbar() {
                 setNavClasses([Classes.nav])
             }
         }
-
         return () => {
             window.onscroll = null
         }
     }, [])
+
+    useEffect(() => {
+        if (mobileNavState)
+            setMobileNavClasses([Classes.mobile, Classes.open])
+        else
+            setMobileNavClasses([Classes.mobile]);
+    }, [mobileNavState])
+
+    const onClickHandler = () => {
+        setMobileNavState(!mobileNavState)
+    }
 
     return (
         <nav className={navClasses.join(' ')}>
@@ -96,6 +110,16 @@ function Navbar() {
             </div>
             <div className={Classes.block}>
                 {btnNamesRight.map((btn, i) => <NavigationButton {...btn} key={i} />)}
+            </div>
+            <div className={mobileNavClasses.join(' ')}>
+                <div className={Classes.hamburgerContainer} onClick={onClickHandler}>
+                    <div className={Classes.hamburger} />
+                </div>
+                <div className={Classes.mobileBlock}>
+                    <div className={Classes.navItems}>
+                        {[...btnNamesLeft, ...btnNamesRight].map((btn, i) => <NavigationButton {...btn} key={i} />)}
+                    </div>
+                </div>
             </div>
         </nav>
     )
