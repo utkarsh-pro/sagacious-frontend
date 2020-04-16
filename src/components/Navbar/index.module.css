@@ -1,0 +1,26 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 1.15rem;
+    position: fixed;
+    top: 0;
+    height: 3.5rem;
+    background-color: transparent;
+    width: 100%;
+    z-index: 1;
+}
+
+.nav .block {
+    margin: 0 1rem;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .block .navItem {
+    margin: 0 1rem;
+}
