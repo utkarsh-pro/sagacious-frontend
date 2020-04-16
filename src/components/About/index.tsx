@@ -3,7 +3,7 @@ import Classes from './index.module.css'
 
 function About() {
     return (
-        <section className={Classes.container}>
+        <section className={Classes.container} id="about">
             <div className={Classes.aboutmeContainer}>
                 <div className={Classes.aboutme}>
                     <h2 className={Classes.title}>ABOUT</h2>

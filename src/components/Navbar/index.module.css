@@ -28,5 +28,9 @@
 }
 
 .nav .block .navItem {
-    margin: 0 1rem;
+    padding: 0 1rem 0.35rem;
+}
+
+.active {
+    border-bottom: 2px solid var(--gray-dark);
 }
