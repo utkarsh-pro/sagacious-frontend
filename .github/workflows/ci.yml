@@ -1,0 +1,39 @@
+name: CI/CD Pipeline
+
+on: 
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set environmental variable
+      run: echo ::set-env name=IMAGE_NAME::$(echo docker.pkg.github.com/${{ github.repository }}/${{ github.event.repository.name }}:$(date "+%d%m%y%H%M"))
+    
+    - name: Transpile typescript code to javascript and build
+      run: |
+        npm install
+        npm run build
+    
+    - name: Build the Docker image and publish registry
+      run: |
+        docker build . --file Dockerfile --tag $IMAGE_NAME
+        docker login -u utkarsh-pro -p ${{ secrets.GITHUB_TOKEN }} docker.pkg.github.com
+        docker push $IMAGE_NAME
+        docker logout docker.pkg.github.com
+        
+    - name: Run deploy script on the server
+      uses: appleboy/ssh-action@master
+      env:
+        USERNAME: ${{ secrets.USERNAME }}
+        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        REPO: ${{ github.repository }}
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.DEPLOYMENT_KEY }}
+        envs: USERNAME,TOKEN,IMAGE_NAME,REPO
+        script: ~/sagacious-dev/deploy-script.sh $USERNAME $TOKEN $IMAGE_NAME $REPO

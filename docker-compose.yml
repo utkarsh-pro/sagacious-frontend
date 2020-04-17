@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  client:
+    image: "${IMAGE_NAME}"
+    networks:
+        - frontend
+    deploy:
+      replicas: 1
+    labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.mfrontend.rule=Host(`sagacious.dev`)"
+        - "traefik.http.routers.mfrontend.entrypoints=websecure"
+        - "traefik.http.routers.mfrontend.tls.certresolver=myresolver"
