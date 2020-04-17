@@ -59,9 +59,15 @@ function Intro() {
                 <h1 className={Classes.title}>Utkarsh Srivastava</h1>
                 <h2 className={Classes.tagline}>Curiosity driven and a passionate web developer</h2>
                 <div className={Classes.icons}>
-                    <Linkedin className={Classes.icon} />
-                    <Github className={Classes.icon} />
-                    <Twitter className={Classes.icon} />
+                    <a href="https://www.linkedin.com/in/utkarsh-srivastava-2310/" target="_blank" rel="noopener noreferrer">
+                        <Linkedin className={Classes.icon} />
+                    </a>
+                    <a href="https://github.com/utkarsh-pro" target="_blank" rel="noopener noreferrer">
+                        <Github className={Classes.icon} />
+                    </a>
+                    <a href="https:/twitter.com/utkarshdev23" target="_blank" rel="noopener noreferrer">
+                        <Twitter className={Classes.icon} />
+                    </a>
                 </div>
             </div>
 
