@@ -65,7 +65,7 @@ function Intro() {
                     <a href="https://github.com/utkarsh-pro" target="_blank" rel="noopener noreferrer">
                         <Github className={Classes.icon} />
                     </a>
-                    <a href="https:/twitter.com/utkarshdev23" target="_blank" rel="noopener noreferrer">
+                    <a href="https://twitter.com/utkarshdev23" target="_blank" rel="noopener noreferrer">
                         <Twitter className={Classes.icon} />
                     </a>
                 </div>

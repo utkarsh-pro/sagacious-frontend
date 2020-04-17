@@ -1,73 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import Classes from './index.module.css'
-import { Link } from 'react-router-dom'
-import { Link as ScrollLink } from 'react-scroll'
-
-// =================== INTERFACES ===========================
-export enum LinkType {
-    internal = "internal",
-    external = "external",
-    internalHash = "internalHash"
-}
-
-export interface ILink {
-    type: LinkType;
-    link: string;
-}
-
-export interface INavigationButton {
-    name: string;
-    link: ILink
-}
+import LinkButton, { ILinkButton, LinkType } from '../LinkButton'
 
 // =================== CONSTANTS ============================
 
-const btnNamesLeft: INavigationButton[] = [
-    { name: "Utkarsh Srivastava", link: { type: LinkType.internal, link: "/" } },
-    { name: "About", link: { type: LinkType.internalHash, link: "about" } },
-    { name: "Projects", link: { type: LinkType.internalHash, link: "projects" } },
-    { name: "Resume", link: { type: LinkType.internal, link: "/resume" } },
+const btnNamesLeft: ILinkButton[] = [
+    { name: "Utkarsh Srivastava", link: { type: LinkType.INTERNAL, link: "/" } },
+    { name: "About", link: { type: LinkType.INTERNAL_HASH, link: "about" } },
+    { name: "Projects", link: { type: LinkType.INTERNAL_HASH, link: "projects" } },
+    { name: "Resume", link: { type: LinkType.INTERNAL, link: "/resume" } },
 ]
 
-const btnNamesRight: INavigationButton[] = [
-    { name: "Blog", link: { type: LinkType.external, link: "https://blog.sagacious.dev" } },
-    { name: "Contact", link: { type: LinkType.internalHash, link: "contact" } },
+const btnNamesRight: ILinkButton[] = [
+    { name: "Blog", link: { type: LinkType.EXTERNAL, link: "https://blog.sagacious.dev" } },
+    { name: "Contact", link: { type: LinkType.INTERNAL_HASH, link: "contact" } },
 ]
-
-// =================== HELPER COMPONENTS ====================
-
-function NavigationButton({ name, link }: INavigationButton) {
-    if (link.type === LinkType.internal)
-        return (
-            <Link to={link.link}>
-                <div className={Classes.navItem}>
-                    {name}
-                </div>
-            </Link>
-        )
-    else if (link.type === LinkType.internalHash)
-        return (
-            <ScrollLink
-                style={{ cursor: "pointer" }}
-                activeClass={Classes.active}
-                spy={true}
-                smooth={true}
-                offset={-1 * 3.5 * 16}
-                duration={500}
-                to={link.link}>
-                <div className={Classes.navItem}>
-                    {name}
-                </div>
-            </ScrollLink>
-        )
-    else return (
-        <a href={link.link}>
-            <div className={Classes.navItem}>
-                {name}
-            </div>
-        </a>
-    )
-}
 
 // =================== MAIN COMPONENT =======================
 
@@ -106,10 +53,22 @@ function Navbar() {
     return (
         <nav className={navClasses.join(' ')}>
             <div className={Classes.block}>
-                {btnNamesLeft.map((btn, i) => <NavigationButton {...btn} key={i} />)}
+                {btnNamesLeft.map((btn, i) => (
+                    <LinkButton
+                        className={Classes.navItem}
+                        activeClassName={Classes.active}
+                        key={i}
+                        {...btn} />
+                ))}
             </div>
             <div className={Classes.block}>
-                {btnNamesRight.map((btn, i) => <NavigationButton {...btn} key={i} />)}
+                {btnNamesRight.map((btn, i) => (
+                    <LinkButton
+                        className={Classes.navItem}
+                        activeClassName={Classes.active}
+                        key={i}
+                        {...btn} />
+                ))}
             </div>
             <div className={mobileNavClasses.join(' ')}>
                 <div className={Classes.hamburgerContainer} onClick={onClickHandler}>
@@ -117,7 +76,13 @@ function Navbar() {
                 </div>
                 <div className={Classes.mobileBlock}>
                     <div className={Classes.navItems}>
-                        {[...btnNamesLeft, ...btnNamesRight].map((btn, i) => <NavigationButton {...btn} key={i} />)}
+                        {[...btnNamesLeft, ...btnNamesRight].map((btn, i) => (
+                            <LinkButton
+                                className={Classes.navItem}
+                                activeClassName={Classes.active}
+                                key={i}
+                                {...btn} />
+                        ))}
                     </div>
                 </div>
             </div>
