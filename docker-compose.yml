@@ -11,3 +11,4 @@ services:
         - "traefik.http.routers.mfrontend.rule=Host(`sagacious.dev`)"
         - "traefik.http.routers.mfrontend.entrypoints=websecure"
         - "traefik.http.routers.mfrontend.tls.certresolver=myresolver"
+        - "traefik.http.services.client-service.loadbalancer.server.port=3000"
