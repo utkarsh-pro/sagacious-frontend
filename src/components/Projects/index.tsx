@@ -1,0 +1,61 @@
+import React from 'react'
+import Classes from './index.module.css'
+import Card, { ICard } from '../Card'
+import { LinkType } from '../LinkButton'
+import ScrollAnimDiv from '../ScrollAnimDiv'
+
+const projects: ICard[] = [
+    {
+        text: "Project1",
+        img: require("../../assets/images/portfolio.png"),
+        link: { type: LinkType.EXTERNAL, link: "https://hackstrap.com" }
+    },
+    {
+        text: "Project2",
+        img: require("../../assets/images/portfolio.png"),
+        link: { type: LinkType.EXTERNAL, link: "https://hackstrap.com" }
+    },
+    {
+        text: "Project3",
+        img: require("../../assets/images/portfolio.png"),
+        link: { type: LinkType.EXTERNAL, link: "https://hackstrap.com" }
+    },
+    {
+        text: "Project4",
+        img: require("../../assets/images/portfolio.png"),
+        link: { type: LinkType.EXTERNAL, link: "https://hackstrap.com" }
+    },
+    {
+        text: "Project5",
+        img: require("../../assets/images/portfolio.png"),
+        link: { type: LinkType.EXTERNAL, link: "https://hackstrap.com" }
+    },
+    {
+        text: "Project6",
+        img: require("../../assets/images/portfolio.png"),
+        link: { type: LinkType.EXTERNAL, link: "https://hackstrap.com" }
+    }
+]
+
+function Projects() {
+    return (
+        <div className={Classes.projectsContainer} id="projects">
+            <div className={Classes.projects}>
+                <h2 className={Classes.title}>Projects</h2>
+                <ScrollAnimDiv
+                    className={Classes.wrapper}
+                    classBefore={Classes.animBefore}
+                    classAfter={Classes.animAfter}>
+                    {projects.map((project, i) => (
+                        <div key={"card_" + i} className={Classes.card}>
+                            <Card {...project} />
+                        </div>
+                    )
+                    )}
+                </ScrollAnimDiv>
+            </div>
+        </div>
+    )
+}
+
+export default Projects
