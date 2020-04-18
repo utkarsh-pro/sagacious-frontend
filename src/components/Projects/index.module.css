@@ -20,16 +20,17 @@
 
 .wrapper {
     margin-top: 5rem;
-}
-
-.animBefore {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.animBefore {
+    height: 100%;
+    width: 100%;
     transform: translateY(20rem);
     opacity: 0;
     transition: all 0.5s ease-in-out;
-    transition-delay: 0.2s;
 }
 
 .animAfter {

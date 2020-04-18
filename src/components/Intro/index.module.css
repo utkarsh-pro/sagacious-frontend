@@ -44,19 +44,26 @@
     align-items: center;
 }
 
-.icon {
+.iconContainer {
     margin-top: 1.5rem;
     margin-right: 2rem;
     height: 2.5rem;
-    fill: var(--gray-dark);
     transform: scale(1);
     transition: 0.2s linear;
     cursor: pointer;
 }
 
-.icon:hover{
+.iconContainer:hover{
     transform: scale(1.15);
     fill: black;
+}
+
+.iconContainer:last-child {
+    margin-right: 0;
+}
+
+.icon {
+    fill: var(--gray-dark);
 }
 
 @media screen and (max-width: 900px) {
@@ -67,7 +74,7 @@
     .content .tagline {
         font-size: 1.25rem;
     }
-    .icon {
+    .iconContainer {
         height: 2rem;
     }
 }
@@ -81,7 +88,7 @@
         justify-content: center;
         text-align: center;
     }
-    .icon {
+    .iconContainer {
         height: 1.75rem;
     }
 }

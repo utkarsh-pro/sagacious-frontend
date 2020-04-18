@@ -39,22 +39,23 @@ const projects: ICard[] = [
 
 function Projects() {
     return (
-        <div className={Classes.projectsContainer} id="projects">
+        <section className={Classes.projectsContainer} id="projects">
             <div className={Classes.projects}>
                 <h2 className={Classes.title}>Projects</h2>
-                <ScrollAnimDiv
-                    className={Classes.wrapper}
-                    classBefore={Classes.animBefore}
-                    classAfter={Classes.animAfter}>
+                <div className={Classes.wrapper}>
                     {projects.map((project, i) => (
-                        <div key={"card_" + i} className={Classes.card}>
+                        <ScrollAnimDiv
+                            className={Classes.card}
+                            key={"card_" + i}
+                            classBefore={Classes.animBefore}
+                            styleComponenet={{ transitionDelay: `${i * 0.2}s` }}
+                            classAfter={Classes.animAfter}>
                             <Card {...project} />
-                        </div>
-                    )
-                    )}
-                </ScrollAnimDiv>
+                        </ScrollAnimDiv>
+                    ))}
+                </div>
             </div>
-        </div>
+        </section>
     )
 }
 

@@ -9,7 +9,8 @@ export interface IScrollAnim {
     classBefore: string;
     classAfter: string;
     className?: string;
-    options?: IScrollAnimConfig
+    styleComponenet?: React.CSSProperties;
+    options?: IScrollAnimConfig;
     children?: ReactNode;
 }
 
@@ -34,6 +35,7 @@ const generateObserverConfig = ({ reversible, startRatio = 0, ...others }: IScro
 
 function ScrollAnim({
     classBefore,
+    styleComponenet,
     classAfter,
     options = { startRatio: 0 },
     className,
@@ -53,7 +55,6 @@ function ScrollAnim({
                 if (entry.isIntersecting) {
                     setClasses([classBefore, classAfter])
                 }
-                else console.log(entry)
             })
         }, observerOptions)
 
@@ -67,7 +68,7 @@ function ScrollAnim({
 
     return (
         <div ref={ref} className={className}>
-            <div className={classes.join(' ')}>
+            <div className={classes.join(' ')} style={styleComponenet}>
                 {children}
             </div>
         </div>
