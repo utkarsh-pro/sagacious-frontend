@@ -7,22 +7,22 @@ import ScrollAnimDiv from '../ScrollAnimDiv'
 const projects: ICard[] = [
     {
         text: "Template Generator in Golang",
-        img: require("../../assets/images/portfolio.png"),
+        img: require("../../assets/images/portfolio.jpeg"),
         link: { type: LinkType.EXTERNAL, link: "https://github.com/utkarsh-pro/template-generator" }
     },
     {
         text: "Chatter: Node.js based Chatting Application",
-        img: require("../../assets/images/portfolio.png"),
+        img: require("../../assets/images/portfolio.jpeg"),
         link: { type: LinkType.EXTERNAL, link: "https://chatt-for-fun.herokuapp.com" }
     },
     {
         text: "NodeJS Snowflake: 64 bit ID generator",
-        img: require("../../assets/images/portfolio.png"),
+        img: require("../../assets/images/portfolio.jpeg"),
         link: { type: LinkType.EXTERNAL, link: "https://www.npmjs.com/package/nodejs-snowflake" }
     },
     {
         text: "ScreenShare: A WebRTC based screen sharing application",
-        img: require("../../assets/images/portfolio.png"),
+        img: require("../../assets/images/portfolio.jpeg"),
         link: { type: LinkType.EXTERNAL, link: "https://screenshare.sagacious.dev" }
     }
 ]
