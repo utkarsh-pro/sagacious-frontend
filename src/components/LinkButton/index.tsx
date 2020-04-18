@@ -48,7 +48,7 @@ function LinkButton({ name, link, className, activeClassName }: ILinkButton) {
             </ScrollLink>
         )
     else return (
-        <a href={link.link}>
+        <a href={link.link} target="_blank" rel="noopener noreferrer">
             <div className={className}>
                 {name}
             </div>

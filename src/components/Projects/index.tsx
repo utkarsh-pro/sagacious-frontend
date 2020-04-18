@@ -6,34 +6,24 @@ import ScrollAnimDiv from '../ScrollAnimDiv'
 
 const projects: ICard[] = [
     {
-        text: "Project1",
+        text: "Template Generator in Golang",
         img: require("../../assets/images/portfolio.png"),
-        link: { type: LinkType.EXTERNAL, link: "https://hackstrap.com" }
+        link: { type: LinkType.EXTERNAL, link: "https://github.com/utkarsh-pro/template-generator" }
     },
     {
-        text: "Project2",
+        text: "Chatter: Node.js based Chatting Application",
         img: require("../../assets/images/portfolio.png"),
-        link: { type: LinkType.EXTERNAL, link: "https://hackstrap.com" }
+        link: { type: LinkType.EXTERNAL, link: "https://chatt-for-fun.herokuapp.com" }
     },
     {
-        text: "Project3",
+        text: "NodeJS Snowflake: 64 bit ID generator",
         img: require("../../assets/images/portfolio.png"),
-        link: { type: LinkType.EXTERNAL, link: "https://hackstrap.com" }
+        link: { type: LinkType.EXTERNAL, link: "https://www.npmjs.com/package/nodejs-snowflake" }
     },
     {
-        text: "Project4",
+        text: "ScreenShare: A WebRTC based screen sharing application",
         img: require("../../assets/images/portfolio.png"),
-        link: { type: LinkType.EXTERNAL, link: "https://hackstrap.com" }
-    },
-    {
-        text: "Project5",
-        img: require("../../assets/images/portfolio.png"),
-        link: { type: LinkType.EXTERNAL, link: "https://hackstrap.com" }
-    },
-    {
-        text: "Project6",
-        img: require("../../assets/images/portfolio.png"),
-        link: { type: LinkType.EXTERNAL, link: "https://hackstrap.com" }
+        link: { type: LinkType.EXTERNAL, link: "https://screenshare.sagacious.dev" }
     }
 ]
 
@@ -48,7 +38,7 @@ function Projects() {
                             className={Classes.card}
                             key={"card_" + i}
                             classBefore={Classes.animBefore}
-                            styleComponenet={{ transitionDelay: `${i * 0.2}s` }}
+                            styleComponenet={{ transitionDelay: `${i * 0.1}s` }}
                             classAfter={Classes.animAfter}>
                             <Card {...project} />
                         </ScrollAnimDiv>
