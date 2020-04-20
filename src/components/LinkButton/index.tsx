@@ -39,7 +39,7 @@ function LinkButton({ name, link, className, activeClassName }: ILinkButton) {
                 activeClass={activeClassName}
                 spy={true}
                 smooth={true}
-                offset={-1 * 3.5 * 16}
+                offset={0}
                 duration={500}
                 to={link.link}>
                 <div className={className}>

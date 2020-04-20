@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Classes from './index.module.css'
 import LinkButton, { ILinkButton, LinkType } from '../LinkButton'
+
+// Import global styles
+import Global from '../../styles/global.module.css'
 
 // =================== CONSTANTS ============================
 
@@ -25,6 +28,8 @@ function Navbar() {
     const [mobileNavClasses, setMobileNavClasses] = useState([Classes.mobile])
     const [mobileNavState, setMobileNavState] = useState(false)
 
+    const ref = useRef<HTMLDivElement>(null)
+
     // Adding a scroll listener on the window
     useEffect(() => {
         window.onscroll = () => {
@@ -34,8 +39,18 @@ function Navbar() {
                 setNavClasses([Classes.nav])
             }
         }
+
+        const handleClick = (event: MouseEvent) => {
+            if (ref.current?.contains(event.target as Node)) return;
+            else setMobileNavState(false)
+        }
+
+        // Add an event listener on the page to listen for taps
+        document.addEventListener("mousedown", handleClick)
+
         return () => {
-            window.onscroll = null
+            window.onscroll = null;
+            document.removeEventListener("mousedown", handleClick)
         }
     }, [])
 
@@ -51,40 +66,47 @@ function Navbar() {
     }
 
     return (
-        <nav className={navClasses.join(' ')}>
-            <div className={Classes.block}>
-                {btnNamesLeft.map((btn, i) => (
-                    <LinkButton
-                        className={Classes.navItem}
-                        activeClassName={Classes.active}
-                        key={i}
-                        {...btn} />
-                ))}
-            </div>
-            <div className={Classes.block}>
-                {btnNamesRight.map((btn, i) => (
-                    <LinkButton
-                        className={Classes.navItem}
-                        activeClassName={Classes.active}
-                        key={i}
-                        {...btn} />
-                ))}
-            </div>
-            <div className={mobileNavClasses.join(' ')}>
-                <div className={Classes.hamburgerContainer} onClick={onClickHandler}>
-                    <div className={Classes.hamburger} />
+        <nav className={navClasses.join(' ')} ref={ref}>
+            <div className={`${Global.container} ${Classes.container}`}>
+                {/* Desktop markup */}
+                <div className={Classes.block}>
+                    {btnNamesLeft.map((btn, i) => (
+                        <LinkButton
+                            className={Classes.navItem}
+                            activeClassName={Classes.active}
+                            key={i}
+                            {...btn} />
+                    ))}
                 </div>
-                <div className={Classes.mobileBlock}>
-                    <div className={Classes.navItems}>
-                        {[...btnNamesLeft, ...btnNamesRight].map((btn, i) => (
-                            <LinkButton
-                                className={Classes.navItem}
-                                activeClassName={Classes.active}
-                                key={i}
-                                {...btn} />
-                        ))}
+                <div className={Classes.block}>
+                    {btnNamesRight.map((btn, i) => (
+                        <LinkButton
+                            className={Classes.navItem}
+                            activeClassName={Classes.active}
+                            key={i}
+                            {...btn} />
+                    ))}
+                </div>
+                {/* Desktop markup ends */}
+
+                {/* Mobile markup */}
+                <div className={mobileNavClasses.join(' ')}>
+                    <div className={Classes.hamburgerContainer} onClick={onClickHandler}>
+                        <div className={Classes.hamburger} />
+                    </div>
+                    <div className={Classes.mobileBlock}>
+                        <div className={Classes.navItems}>
+                            {[...btnNamesLeft, ...btnNamesRight].map((btn, i) => (
+                                <LinkButton
+                                    className={Classes.navItem}
+                                    activeClassName={Classes.active}
+                                    key={i}
+                                    {...btn} />
+                            ))}
+                        </div>
                     </div>
                 </div>
+                {/* Mobile markup ends */}
             </div>
         </nav>
     )
