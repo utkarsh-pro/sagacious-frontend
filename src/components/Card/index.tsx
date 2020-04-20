@@ -14,7 +14,7 @@ function Card({ img, text, link }: ICard) {
             <div className={Classes.contentWrapper}>
                 <div className={Classes.content}>
                     <div className={Classes.text}>{text}</div>
-                    {link && <LinkButton link={link} name="Learn More" className={Classes.btn} />}
+                    {link && <LinkButton link={link} name="View Project" className={Classes.btn} />}
                 </div>
             </div>
         </div>
