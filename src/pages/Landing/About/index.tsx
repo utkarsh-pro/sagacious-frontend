@@ -1,12 +1,16 @@
 import React from 'react'
 import Classes from './index.module.css'
-import ScrollAnimDiv from '../ScrollAnimDiv'
+import ScrollAnimDiv from '../../../components/ScrollAnimDiv'
+
+// Import global styles
+import Global from '../../../styles/global.module.css';
 
 function About() {
     return (
         <section className={Classes.container} id="about">
             <div className={Classes.aboutmeContainer}>
                 <ScrollAnimDiv
+                    className={`${Global.container} ${Classes.container}`}
                     classBefore={Classes.initTransition}
                     classAfter={Classes.transition}
                     options={{ threshold: 0.5 }}>
@@ -15,11 +19,7 @@ function About() {
                         <div className={Classes.aboutContent}>
                             <p className={Classes.contentP}>
                                 I am a full stack web developer and have a serious passion for building web applications at scale.
-                            </p>
-                            <p className={Classes.contentP}>
                                 Co-founded Hackstrap Technologies to solve the problems faced by investors and founders.
-                            </p>
-                            <p className={Classes.contentP}>
                                 Working for over two years on scalable real time communication.
                             </p>
                         </div>
@@ -40,6 +40,7 @@ function About() {
 
             <div className={Classes.techstackContainer}>
                 <ScrollAnimDiv
+                    className={`${Global.container} ${Classes.container}`}
                     classBefore={Classes.initTransition}
                     classAfter={Classes.transition}
                     options={{ threshold: 0.5 }}>
@@ -47,7 +48,7 @@ function About() {
                         <div className={Classes.techstackContent}>
                             {/* Second Title */}
                             <h3 className={Classes.titlemin}>
-                                Technologies used to build the sagacious.dev platform
+                                Technologies used to build the entire sagacious.dev platform
                             <br />
                             (Explore other applications available on the platform here)
                         </h3>
@@ -58,8 +59,9 @@ function About() {
                                 <div className={Classes.block}>
                                     <h3 className={Classes.tag}>Frontend</h3>
                                     <ul>
-                                        <li>React</li>
-                                        <li>Redux</li>
+                                        <li>React - Used for creating the UI</li>
+                                        <li>Redux - Used for managing the state</li>
+                                        <li>Socket.io - For Reliable Websocket communication</li>
                                     </ul>
                                 </div>
 
