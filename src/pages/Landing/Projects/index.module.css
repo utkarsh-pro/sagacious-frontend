@@ -8,8 +8,12 @@
     align-items: center;
 }
 
+.container {
+    width: 100%;
+}
+
 .projects {
-    width: 70%;
+    width: 100%;
 }
 
 .title {
@@ -24,12 +28,13 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .animBefore {
     height: 100%;
     width: 100%;
-    transform: translateY(20rem);
+    transform: translateY(5rem);
     opacity: 0;
     transition: all 0.5s ease-in-out;
 }
@@ -41,7 +46,7 @@
 
 .card {
     margin: 2rem 0;
-    height: 16rem;
+    height: 15.4rem;
     width: 32rem;
 }
 

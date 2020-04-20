@@ -33,7 +33,7 @@ const projects: ICard[] = [
 function Projects() {
     return (
         <section className={Classes.projectsContainer} id="projects">
-            <div className={Global.container}>
+            <div className={`${Global.container} ${Classes.container}`}>
                 <div className={Classes.projects}>
                     <h2 className={Classes.title}>Projects</h2>
                     <div className={Classes.wrapper}>

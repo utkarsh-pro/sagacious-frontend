@@ -29,6 +29,7 @@ code {
   --light-bg: linear-gradient(240deg, #FFFFFF 0%, var(--gray) 100.28%);
 
   --title-font: 'Open Sans', sans-serif;
+  --text-font: 'Roboto', sans-serif;
 }
 
 a {
