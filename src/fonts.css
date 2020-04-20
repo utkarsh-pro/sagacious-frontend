@@ -25,4 +25,5 @@
        url('./assets/fonts/roboto/roboto-v20-latin-regular.woff') format('woff'), /* Modern Browsers */
        url('./assets/fonts/roboto/roboto-v20-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
        url('./assets/fonts/roboto/roboto-v20-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+  font-display: swap;
 }
