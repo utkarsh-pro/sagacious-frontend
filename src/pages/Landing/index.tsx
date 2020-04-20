@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Classes from './index.module.css'
 import Intro from './Intro'
 import About from './About';
@@ -12,14 +12,14 @@ const scrollToTop = () => {
 
 function Landing() {
     return (
-        <main className={Classes.main}>
+        <Fragment>
             <Intro />
             <About />
             <Projects />
             <div className={Classes.scrollBtn} onClick={scrollToTop}>
                 <UpArrow fill="white" />
             </div>
-        </main>
+        </Fragment>
     )
 }
 

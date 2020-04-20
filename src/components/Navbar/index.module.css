@@ -2,7 +2,7 @@
     padding: 3rem 0;
     font-family: var(--title-font);
     font-weight: 600;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     position: fixed;
     top: 0;
     background-color: transparent;
@@ -37,7 +37,15 @@
 }
 
 .active {
-    border-bottom: 2px solid var(--gray-dark);
+    position: relative;
+}
+
+.active::after {
+    content: '';
+    position: absolute;
+    background-color: var(--gray-dark);
+    height: 2px;
+    width: 100%;
 }
 
 /* Mobile specific styles here */
