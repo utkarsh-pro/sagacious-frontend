@@ -43,7 +43,7 @@ function About() {
                     className={`${Global.container} ${Classes.container}`}
                     classBefore={Classes.initTransition}
                     classAfter={Classes.transition}
-                    options={{ threshold: 0.5 }}>
+                    options={{ threshold: 0.25 }}>
                     <div className={Classes.techstack}>
                         <div className={Classes.techstackContent}>
                             {/* Second Title */}

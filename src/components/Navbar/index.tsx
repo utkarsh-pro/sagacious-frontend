@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Classes from './index.module.css'
 import LinkButton, { ILinkButton, LinkType } from '../LinkButton'
 
@@ -28,6 +28,8 @@ function Navbar() {
     const [mobileNavClasses, setMobileNavClasses] = useState([Classes.mobile])
     const [mobileNavState, setMobileNavState] = useState(false)
 
+    const ref = useRef<HTMLDivElement>(null)
+
     // Adding a scroll listener on the window
     useEffect(() => {
         window.onscroll = () => {
@@ -37,8 +39,18 @@ function Navbar() {
                 setNavClasses([Classes.nav])
             }
         }
+
+        const handleClick = (event: MouseEvent) => {
+            if (ref.current?.contains(event.target as Node)) return;
+            else setMobileNavState(false)
+        }
+
+        // Add an event listener on the page to listen for taps
+        document.addEventListener("mousedown", handleClick)
+
         return () => {
-            window.onscroll = null
+            window.onscroll = null;
+            document.removeEventListener("mousedown", handleClick)
         }
     }, [])
 
@@ -54,7 +66,7 @@ function Navbar() {
     }
 
     return (
-        <nav className={navClasses.join(' ')}>
+        <nav className={navClasses.join(' ')} ref={ref}>
             <div className={`${Global.container} ${Classes.container}`}>
                 {/* Desktop markup */}
                 <div className={Classes.block}>
