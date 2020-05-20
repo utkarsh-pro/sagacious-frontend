@@ -1,0 +1,47 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 40rem;
+}
+
+.tag {
+    font-size: 1.35rem;
+    margin: 1rem 0 3rem;
+}
+
+.label {
+    font-size: 1.1rem;
+    margin: 0.25rem 0;
+}
+
+.input {
+    padding: 0.65rem 0.5rem;
+    border: 1px solid var(--gray-dark);
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    font-family: inherit;
+    margin: 0 0 1rem;
+}
+
+.textbox {
+    resize: none;
+    overflow-y: auto;
+}
+
+.btn {
+    margin: 1rem 0;
+    width: 5rem;
+    font-size: 1rem;
+    background-color: var(--menu-black);
+    color: white;
+    border: 1px solid var(--menu-black);
+    padding: 0.65rem 0.5rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: var(--menu-black);
+}

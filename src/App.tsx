@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Landing from './pages/Landing'
 import { Switch, Route } from 'react-router-dom';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <Landing />
+          </Route>
+          <Route path="/contact" exact>
+            <Contact />
           </Route>
         </Switch>
       </main>

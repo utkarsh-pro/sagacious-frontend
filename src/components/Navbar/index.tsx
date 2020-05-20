@@ -16,7 +16,7 @@ const btnNamesLeft: ILinkButton[] = [
 
 const btnNamesRight: ILinkButton[] = [
     { name: "Blog", link: { type: LinkType.EXTERNAL, link: "https://blog.sagacious.dev" } },
-    { name: "Contact", link: { type: LinkType.INTERNAL_HASH, link: "contact" } },
+    { name: "Contact", link: { type: LinkType.INTERNAL, link: "/contact" } },
 ]
 
 // =================== MAIN COMPONENT =======================
