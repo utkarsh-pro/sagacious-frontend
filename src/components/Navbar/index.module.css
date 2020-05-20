@@ -1,4 +1,4 @@
-.nav{
+.nav {
     padding: 3rem 0;
     font-family: var(--title-font);
     font-weight: 600;
@@ -51,6 +51,7 @@
 /* Mobile specific styles here */
 
 /* HAMBURGER */
+
 .hamburgerContainer {
     display: flex;
     justify-content: center;
@@ -69,8 +70,7 @@
     transition: all 0.4s ease-in-out;
 }
 
-.hamburger::before,
-.hamburger::after{
+.hamburger::before, .hamburger::after {
     content: '';
     position: absolute;
     width: 1.85rem;
@@ -88,7 +88,7 @@
     transform: translateY(0.65rem);
 }
 
-.open .hamburger{
+.open .hamburger {
     transform: translateX(3rem);
     background: transparent;
 }
@@ -113,15 +113,12 @@
         font-size: 1rem;
         background: transparent;
     }
-
     .navmin {
         background-color: white;
     }
-
     .navItem {
         padding: 0 1rem;
     }
-
     .active {
         background-color: white;
         color: var(--black-light);
@@ -134,13 +131,11 @@
     .block {
         display: none;
     }
-
     .mobile {
         margin-left: auto;
         display: flex;
         flex-direction: column;
     }
-
     .mobileBlock {
         position: fixed;
         top: 2rem;
@@ -154,7 +149,6 @@
         border-radius: 50%;
         transition: all 0.4s ease;
     }
-
     .navItems {
         position: fixed;
         bottom: 25%;
@@ -166,16 +160,16 @@
         align-items: center;
         flex-direction: column;
     }
-
-    .navItem{
+    .navItem {
         font-size: 1.25rem;
         margin: 1rem;
     }
-
+    .active::after {
+        background-color: transparent;
+    }
     .open .mobileBlock {
         transform: translate(50%, -50%) scale(1);
     }
-
     .open .navItem {
         opacity: 1;
     }
