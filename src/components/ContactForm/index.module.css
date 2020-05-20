@@ -1,7 +1,15 @@
+.formContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .form {
     display: flex;
     flex-direction: column;
-    width: 40rem;
+    width: 80%;
+    max-width: 40rem;
 }
 
 .tag {
@@ -44,4 +52,11 @@
 .btn:hover {
     background-color: #fff;
     color: var(--menu-black);
+}
+
+@media screen and (max-width: 480px) {
+    .form {
+        width: 100%;
+        padding: 0 1rem;
+    }
 }
