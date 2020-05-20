@@ -37,8 +37,9 @@ function LinkButton({ name, link, className, activeClassName }: ILinkButton) {
             <ScrollLink
                 style={{ cursor: "pointer" }}
                 activeClass={activeClassName}
-                spy={true}
-                smooth={true}
+                spy
+                hashSpy
+                smooth
                 offset={0}
                 duration={500}
                 to={link.link}>
