@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Set environmental variable
-      run: echo ::set-env name=IMAGE_NAME::$(echo docker.pkg.github.com/${{ github.repository }}/${{ github.event.repository.name }}:$(date "+%d%m%y%H%M"))
+      run: echo "IMAGE_NAME=$(echo docker.pkg.github.com/${{ github.repository }}/${{ github.event.repository.name }}:$(date "+%d%m%y%H%M"))" >> $GITHUB_ENV
     
     - name: Transpile typescript code to javascript and build
       uses: actions/setup-node@v1
